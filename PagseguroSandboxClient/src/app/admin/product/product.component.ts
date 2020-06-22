@@ -12,4 +12,11 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
   }
 
+  updateProduct() {
+    console.log('Editando produto!');
+  }
+
+  removeProduct() {
+    console.log('Removendo produto!');
+  }
 }
