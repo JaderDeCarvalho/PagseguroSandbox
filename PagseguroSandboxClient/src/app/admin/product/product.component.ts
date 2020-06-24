@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Product } from './_models/Product';
+import { ProductService } from './_service/product.service';
+
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -7,16 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
-  constructor() { }
+  product: Product = new Product();
+
+  constructor(private productService: ProductService) {}
 
   ngOnInit() {
+    console.log('Obtendo lista de produtos do BD');
   }
 
   updateProduct() {
-    console.log('Editando produto!');
+    console.log('Editar produto!');
   }
 
   removeProduct() {
-    console.log('Removendo produto!');
+    console.log('Remover produto!');
+  }
+
+  saveProduct() {
+    console.log('Salvar produto!');
+    this.productService.getWeatherForecast().subscribe(response => {
+      console.log(response.toString());
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  cancel() {
+    console.log('Cancelar inserção!');
+    this.product = new Product();
   }
 }

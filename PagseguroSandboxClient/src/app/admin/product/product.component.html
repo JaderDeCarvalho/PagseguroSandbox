@@ -13,7 +13,6 @@
     data-toggle="modal" data-target="#NewProduct" 
     type="button" id="button-addon2"><i class="fas fa-plus"></i> New Product</button>
   </div>
-
   <div class="modal fade" id="NewProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -24,20 +23,20 @@
           </button>
         </div>
         <div class="modal-body new-product-modal">
-          <input type="text" class="form-control" placeholder="Product's name..." aria-label="Product's name">
+          <input type="text" [(ngModel)]="product.Name" name="product" class="form-control" placeholder="Product...">
           <br>
           <div class="row">
             <div class="col">
-              <input type="text" class="form-control" placeholder="Price..." aria-label="Price">
+              <input type="number" [(ngModel)]="product.Price" name="price" class="form-control" placeholder="Price...">
             </div>
             <div class="col">
-              <input type="text" class="form-control" placeholder="Size..." aria-label="Size">
+              <input type="text" [(ngModel)]="product.Size" name="size" class="form-control" placeholder="Size...">
             </div>
           </div>
         </div>
         <div class="modal-footer new-product-modal">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-secondary">Save</button>
+          <button type="button" (click)="cancel()" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+          <button type="button" (click)="saveProduct()"  class="btn btn-secondary">Save</button>
         </div>
       </div>
     </div>
